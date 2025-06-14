@@ -1,0 +1,5 @@
+streamlit==1.28.1
+googletrans==4.0.0rc1
+indic-transliteration==2.3.44
+google-generativeai==0.3.2
+requests==2.31.0
