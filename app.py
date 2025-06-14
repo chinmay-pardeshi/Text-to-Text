@@ -9,7 +9,7 @@ Performs three types of transformations:
 
 import re
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import streamlit as st
 from googletrans import Translator
 from indic_transliteration import sanscript
@@ -17,14 +17,15 @@ from indic_transliteration.sanscript import transliterate
 import google.generativeai as genai
 
 # Load environment variables
-load_dotenv()
+# load_dotenv()
 
 class TextTransformer:
     def __init__(self):
         self.translator = Translator()
         
         # Initialize Google AI API
-        api_key = os.getenv('GOOGLE_API_KEY')
+        # api_key = os.getenv('GOOGLE_API_KEY')
+        api_key = st.secrets.get("GOOGLE_API_KEY")
         if api_key and api_key.strip() and not api_key.startswith('your_'):
             try:
                 genai.configure(api_key=api_key)
